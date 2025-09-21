@@ -1,0 +1,91 @@
+<section id="reviews">
+  <h2>Reviews</h2>
+  <div id="review-carousel" style="overflow:hidden; position:relative; max-width:800px; margin:0 auto;">
+    <div class="reviews-inner" style="display:flex; transition:transform 0.5s linear;">
+      <!-- Repeat reviews twice for infinite loop effect -->
+      <!-- Review 1 -->
+      <div class="card" style="flex-shrink:0; width:100%; display:flex; align-items:flex-start; gap:10px; padding:15px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); background:white; margin-right:15px;">
+        <img src="https://via.placeholder.com/50" style="border-radius:50%; width:50px; height:50px;" alt="Amit Sharma">
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:5px; margin-bottom:5px;">
+            <strong>Amit Sharma</strong>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="width:18px; height:18px;" alt="Google Logo">
+          </div>
+          <p style="margin:0; color:#ffb400;">⭐⭐⭐⭐⭐</p>
+          <p style="margin:5px 0 0 0; font-size:14px; color:#555;">Excellent service and prompt delivery!</p>
+        </div>
+      </div>
+      <!-- Review 2 -->
+      <div class="card" style="flex-shrink:0; width:100%; display:flex; align-items:flex-start; gap:10px; padding:15px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); background:white; margin-right:15px;">
+        <img src="https://via.placeholder.com/50" style="border-radius:50%; width:50px; height:50px;" alt="Pooja Verma">
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:5px; margin-bottom:5px;">
+            <strong>Pooja Verma</strong>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="width:18px; height:18px;" alt="Google Logo">
+          </div>
+          <p style="margin:0; color:#ffb400;">⭐⭐⭐⭐</p>
+          <p style="margin:5px 0 0 0; font-size:14px; color:#555;">Very satisfied with their work.</p>
+        </div>
+      </div>
+      <!-- Review 3 -->
+      <div class="card" style="flex-shrink:0; width:100%; display:flex; align-items:flex-start; gap:10px; padding:15px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); background:white; margin-right:15px;">
+        <img src="https://via.placeholder.com/50" style="border-radius:50%; width:50px; height:50px;" alt="Rohit Kumar">
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:5px; margin-bottom:5px;">
+            <strong>Rohit Kumar</strong>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="width:18px; height:18px;" alt="Google Logo">
+          </div>
+          <p style="margin:0; color:#ffb400;">⭐⭐⭐⭐⭐</p>
+          <p style="margin:5px 0 0 0; font-size:14px; color:#555;">Great experience buying my home.</p>
+        </div>
+      </div>
+      <!-- Review 4 -->
+      <div class="card" style="flex-shrink:0; width:100%; display:flex; align-items:flex-start; gap:10px; padding:15px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); background:white; margin-right:15px;">
+        <img src="https://via.placeholder.com/50" style="border-radius:50%; width:50px; height:50px;" alt="Priya Singh">
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:5px; margin-bottom:5px;">
+            <strong>Priya Singh</strong>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="width:18px; height:18px;" alt="Google Logo">
+          </div>
+          <p style="margin:0; color:#ffb400;">⭐⭐⭐⭐⭐</p>
+          <p style="margin:5px 0 0 0; font-size:14px; color:#555;">Highly recommend!</p>
+        </div>
+      </div>
+
+      <!-- Repeat reviews for seamless loop -->
+      <div class="card" style="flex-shrink:0; width:100%; display:flex; align-items:flex-start; gap:10px; padding:15px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); background:white; margin-right:15px;">
+        <img src="https://via.placeholder.com/50" style="border-radius:50%; width:50px; height:50px;" alt="Amit Sharma">
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:5px; margin-bottom:5px;">
+            <strong>Amit Sharma</strong>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="width:18px; height:18px;" alt="Google Logo">
+          </div>
+          <p style="margin:0; color:#ffb400;">⭐⭐⭐⭐⭐</p>
+          <p style="margin:5px 0 0 0; font-size:14px; color:#555;">Excellent service and prompt delivery!</p>
+        </div>
+      </div>
+      <!-- Repeat other reviews similarly if needed -->
+    </div>
+  </div>
+</section>
+
+<script>
+const reviewsInner = document.querySelector('#review-carousel .reviews-inner');
+const cards = document.querySelectorAll('#review-carousel .reviews-inner .card');
+let index = 0;
+const total = cards.length / 2; // only slide first set, second set is for looping
+
+function slideReviewsLoop() {
+    index++;
+    reviewsInner.style.transition = 'transform 0.5s linear';
+    reviewsInner.style.transform = `translateX(-${index * 100}%)`;
+    if(index >= total){
+        setTimeout(()=>{
+            reviewsInner.style.transition = 'none';
+            reviewsInner.style.transform = 'translateX(0)';
+            index = 0;
+        }, 510);
+    }
+}
+setInterval(slideReviewsLoop, 4000);
+</script>
